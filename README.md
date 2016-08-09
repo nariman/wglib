@@ -1,6 +1,6 @@
 # Wargaming API Python 3 Library
 
-Wargaming API Library with [asyncio](https://docs.python.org/3/library/asyncio.html) support
+Wargaming API Library with [asyncio](https://docs.python.org/3/library/asyncio.html) support  
 Compatible only with a Python 3.5.
 
 ## It's important
@@ -18,7 +18,7 @@ Only manual
 
 ```python
 >>> import wglib
-
+ 
 >>> wot  = wglib.WoT("application_id", "region")  # World of Tanks API
 >>> wotb = wglib.WoTB("application_id", "region")  # World of Tanks Blitz API
 >>> wotx = wglib.WoTX("application_id", "platform")  # World of Tanks Console API
@@ -27,7 +27,7 @@ Only manual
 >>> wgn  = wglib.WGN("application_id", "region")  # Wargaming Network API
 ```
 
-Available regions can be found in the [Wargaming PAPI documentation](https://developers.wargaming.net/documentation/guide/getting-started/).
+Available regions can be found in the [Wargaming PAPI documentation](https://developers.wargaming.net/documentation/guide/getting-started/).  
 Available platforms at the moment are `xbox` and `ps4`.
 
 You can also specify a default language for API:
@@ -45,7 +45,7 @@ Available request methods can be found in the [Wargaming PAPI reference](https:/
 Game servers info
 https://developers.wargaming.net/reference/all/wgn/servers/info/
 """
-
+ 
 >>> res = wgn.servers.info(game="wot")
 <wglib.api.base.Response object>
 ```
@@ -55,7 +55,7 @@ Response object contains raw (json) data in the `res.raw` and parsed data in the
 ```python
 >>> res.data
 {'status': 'ok', 'data': {'wot': [{'server': 'RU1', 'players_online': 47845} ...
-
+ 
 >>> res.data["status"]
 'ok'
 >>> res["status"]  # dict-like
