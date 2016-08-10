@@ -27,7 +27,7 @@ tests_require = splitlines(content('requirements-test.txt'))
 
 setup(
     name='wglib',
-    version='2016.8.0',
+    version='2016.8.1',
     description='Python library for Wargaming API',
     author='woofilee',
     author_email='woofilee@gmail.com',
