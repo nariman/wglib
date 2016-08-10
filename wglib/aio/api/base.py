@@ -27,12 +27,18 @@ from wglib.api import base
 
 
 class Request(base.Request):
+    def __getattr__(self, method):
+        return Request(self._api, self._method + method)
+
     async def __call__(self, **kwargs):
         self._data.update(kwargs)
         return await self._api.request(self)
 
 
 class API(base.API):
+    def __getattr__(self, method):
+        return Request(self, method)
+
     async def request(self, request):
         """
         :type request: :class:`wglib.api.base.Request`

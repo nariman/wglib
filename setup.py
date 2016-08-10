@@ -3,7 +3,6 @@ from setuptools.command.test import test as TestCommand
 
 
 class PyTest(TestCommand):
-
     def finalize_options(self):
         TestCommand.finalize_options(self)
         self.test_args = []
@@ -28,7 +27,7 @@ tests_require = splitlines(content('requirements-test.txt'))
 
 setup(
     name='wglib',
-    version='2016.8.0',
+    version='2016.8.1',
     description='Python library for Wargaming API',
     author='woofilee',
     author_email='woofilee@gmail.com',
@@ -39,6 +38,7 @@ setup(
     install_requires=install_requires,
     tests_require=install_requires + tests_require,
     test_suite="tests",
+    cmdclass={'test': PyTest},
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
