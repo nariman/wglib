@@ -38,6 +38,7 @@ setup(
     packages=["wglib"],
     install_requires=install_requires,
     tests_require=install_requires + tests_require,
+    test_suite="tests",
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
