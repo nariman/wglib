@@ -3,7 +3,6 @@ from setuptools.command.test import test as TestCommand
 
 
 class PyTest(TestCommand):
-
     def finalize_options(self):
         TestCommand.finalize_options(self)
         self.test_args = []
@@ -39,6 +38,7 @@ setup(
     install_requires=install_requires,
     tests_require=install_requires + tests_require,
     test_suite="tests",
+    cmdclass={'test': PyTest},
     classifiers=(
         'Development Status :: 3 - Alpha',
         'Environment :: Console',
