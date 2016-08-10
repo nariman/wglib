@@ -41,12 +41,12 @@ class WoTX(base.API):
 
 class WoWS(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wotb", application_id, region, language)
+        super().__init__("wows", application_id, region, language)
 
 
 class WoWP(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wotb", application_id, region, language)
+        super().__init__("wowp", application_id, region, language)
 
 
 class WGN(base.API):

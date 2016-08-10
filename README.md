@@ -3,6 +3,9 @@
 Wargaming API Library with [asyncio](https://docs.python.org/3/library/asyncio.html) support  
 Compatible only with a Python 3.5.
 
+[![Build Status](https://travis-ci.org/woofilee/wglib.svg?branch=master)](https://travis-ci.org/woofilee/wglib)
+[![Coverage Status](https://coveralls.io/repos/github/woofilee/wglib/badge.svg?branch=master)](https://coveralls.io/github/woofilee/wglib?branch=master)
+
 ## It's important
 
 Library is created for personal use and may contain bugs and strange code :)
@@ -14,7 +17,7 @@ Only manual
 
 ## Getting started
 
-#### Creating an API:
+#### Creating an API
 
 ```python
 >>> import wglib
