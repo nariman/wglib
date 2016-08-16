@@ -67,5 +67,7 @@ API_ENDPOINTS = {
     },
 }
 
+REPLAY_MAX_SIZE = 10485760  # In bytes, 10MB
+
 HTTP_USER_AGENT_HEADER = 'wglib/{0} (https://github.com/woofilee/wglib)'.format(
     __version__)

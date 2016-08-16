@@ -1,6 +1,6 @@
 """
 Wargaming API Python 3 Library
-wglib.exceptions.
+wglib.replay.decoder.
 
 The MIT License (MIT)
 Copyright (c) 2016 Nariman Safiulin
@@ -21,16 +21,5 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-
-class WGLibError(Exception):
-    """
-    Library error
-    """
-    pass
-
-
-class ValidationError(WGLibError):
-    """
-    Validation error
-    """
-    pass
+import _pickle
+import json
