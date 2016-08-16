@@ -1,6 +1,6 @@
 """
 Wargaming API Python 3 Library
-tests.test_api_requests.
+tests.test_api.test_requests.
 
 The MIT License (MIT)
 Copyright (c) 2016 Nariman Safiulin
@@ -24,7 +24,7 @@ SOFTWARE.
 import unittest
 import asynctest
 import pytest
-import wglib
+from wglib import api
 
 
 class NonAsyncTestCase(unittest.TestCase):
@@ -35,7 +35,7 @@ class NonAsyncTestCase(unittest.TestCase):
             "test_parameter": "test_value",
         }
 
-        wgn = wglib.WGN("demo", "ru", "ru")
+        wgn = api.WGN("demo", "ru", "ru")
 
         # Testing default values, reading parameters from api
         self.assertEqual(wgn["application_id"], "demo")
@@ -60,7 +60,7 @@ class NonAsyncTestCase(unittest.TestCase):
             "test_parameter_3": "test_value_3",
         }
 
-        wgn = wglib.WGN("demo", "ru")
+        wgn = api.WGN("demo", "ru")
 
         request = wgn.servers.info
         self.assertEqual(wgn, request.api)
@@ -74,20 +74,20 @@ class NonAsyncTestCase(unittest.TestCase):
 
     def test_requests(self):
         # R1: with attribute
-        wgn = wglib.WGN("demo", "ru")
+        wgn = api.WGN("demo", "ru")
         self.assertEqual("ok", wgn.servers.info().data["status"])
 
         # R2: with dict-like behavior
-        wot = wglib.WoT("demo", "ru")
+        wot = api.WoT("demo", "ru")
         self.assertEqual("ok", wot.account.list(search="_WooFi_")["status"])
 
     def test_requests_with_error(self):
         # R1
-        wot = wglib.WoT("demo", "ru")
+        wot = api.WoT("demo", "ru")
         self.assertEqual("error", wot.account.list(search="").data["status"])
 
     def test_api_response_object(self):
-        wgn = wglib.WGN("demo", "ru")
+        wgn = api.WGN("demo", "ru")
         request = wgn.servers.info
         response = request()
 
@@ -108,7 +108,7 @@ class AsyncTestCase(asynctest.TestCase):
             "test_parameter": "test_value",
         }
 
-        wgn = wglib.AsyncIOWGN("demo", "ru", "ru")
+        wgn = api.aio.WGN("demo", "ru", "ru")
 
         # Testing default values, reading parameters from api
         self.assertEqual(wgn["application_id"], "demo")
@@ -133,7 +133,7 @@ class AsyncTestCase(asynctest.TestCase):
             "test_parameter_3": "test_value_3",
         }
 
-        wgn = wglib.AsyncIOWGN("demo", "ru")
+        wgn = api.aio.WGN("demo", "ru")
 
         request = wgn.servers.info
         self.assertEqual(wgn, request.api)
@@ -148,14 +148,14 @@ class AsyncTestCase(asynctest.TestCase):
     @pytest.mark.asyncio
     async def test_requests(self):
         # R1: with attribute
-        wgn = wglib.AsyncIOWGN("demo", "ru")
+        wgn = api.aio.WGN("demo", "ru")
         self.assertEqual(
             "ok",
             (await wgn.servers.info()).data["status"]
         )
 
         # R2: with dict-like behavior
-        wot = wglib.AsyncIOWoT("demo", "ru")
+        wot = api.aio.WoT("demo", "ru")
         self.assertEqual(
             "ok",
             (await wot.account.list(search="_WooFi_"))["status"]
@@ -164,7 +164,7 @@ class AsyncTestCase(asynctest.TestCase):
     @pytest.mark.asyncio
     async def test_requests_with_error(self):
         # R1
-        wot = wglib.AsyncIOWoT("demo", "ru")
+        wot = api.aio.WoT("demo", "ru")
         self.assertEqual(
             "error",
             (await wot.account.list(search="")).data["status"]
@@ -172,7 +172,7 @@ class AsyncTestCase(asynctest.TestCase):
 
     @pytest.mark.asyncio
     async def test_api_response_object(self):
-        wgn = wglib.AsyncIOWGN("demo", "ru")
+        wgn = api.aio.WGN("demo", "ru")
         request = wgn.servers.info
         response = await request()
 

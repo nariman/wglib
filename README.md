@@ -20,14 +20,14 @@ Only manual
 #### Creating an API
 
 ```python
->>> import wglib
+>>> from wglib import api
  
->>> wot  = wglib.WoT("application_id", "region")  # World of Tanks API
->>> wotb = wglib.WoTB("application_id", "region")  # World of Tanks Blitz API
->>> wotx = wglib.WoTX("application_id", "platform")  # World of Tanks Console API
->>> wows = wglib.WoWS("application_id", "region")  # World of Warships API
->>> wowp = wglib.WoWS("application_id", "region")  # World of Warplanes API
->>> wgn  = wglib.WGN("application_id", "region")  # Wargaming Network API
+>>> wot  = api.WoT("application_id", "region")  # World of Tanks API
+>>> wotb = api.WoTB("application_id", "region")  # World of Tanks Blitz API
+>>> wotx = api.WoTX("application_id", "platform")  # World of Tanks Console API
+>>> wows = api.WoWS("application_id", "region")  # World of Warships API
+>>> wowp = api.WoWS("application_id", "region")  # World of Warplanes API
+>>> wgn  = api.WGN("application_id", "region")  # Wargaming Network API
 ```
 
 Available regions can be found in the [Wargaming PAPI documentation](https://developers.wargaming.net/documentation/guide/getting-started/).  
@@ -36,7 +36,7 @@ Available platforms at the moment are `xbox` and `ps4`.
 You can also specify a default language for API:
 
 ```python
->>> wot = wglib.WoT("demo", "ru", language="en")  # World of Tanks API
+>>> wot = api.WoT("demo", "ru", language="en")  # World of Tanks API
 ```
 
 #### Creating a request
