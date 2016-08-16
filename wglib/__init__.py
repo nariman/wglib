@@ -23,11 +23,4 @@ SOFTWARE.
 
 __version__ = "2016.8.1"
 
-from wglib.api.names import WoT, WoTB, WoTX, WoWS, WoWP, WGN
-from wglib.aio.api.names import WoT as AsyncIOWoT, \
-                                WoTB as AsyncIOWoTB, \
-                                WoTX as AsyncIOWoTX, \
-                                WoWS as AsyncIOWoWS, \
-                                WoWP as AsyncIOWoWP, \
-                                WGN as AsyncIOWGN
 

@@ -1,6 +1,6 @@
 """
 Wargaming API Python 3 Library
-tests.test_api_creating.
+tests.test_api.test_creating.
 
 The MIT License (MIT)
 Copyright (c) 2016 Nariman Safiulin
@@ -22,58 +22,58 @@ SOFTWARE.
 """
 
 import unittest
-import wglib
+from wglib import api
 import wglib.exceptions
 
 
 class NonAsyncTestCase(unittest.TestCase):
     def test_api(self):
-        wglib.WoT("demo", "ru")
-        wglib.WoTB("demo", "ru")
-        wglib.WoTX("demo", "xbox")
-        wglib.WoWS("demo", "ru")
-        wglib.WoWP("demo", "ru")
-        wglib.WGN("demo", "ru")
+        api.WoT("demo", "ru")
+        api.WoTB("demo", "ru")
+        api.WoTX("demo", "xbox")
+        api.WoWS("demo", "ru")
+        api.WoWP("demo", "ru")
+        api.WGN("demo", "ru")
 
     def test_api_language(self):
-        wglib.WoT("demo", "ru", "ru")
-        wglib.WoTB("demo", "ru", "ru")
-        wglib.WoTX("demo", "xbox", "ru")
-        wglib.WoWS("demo", "ru", "ru")
-        wglib.WoWP("demo", "ru", "ru")
-        wglib.WGN("demo", "ru", "ru")
+        api.WoT("demo", "ru", "ru")
+        api.WoTB("demo", "ru", "ru")
+        api.WoTX("demo", "xbox", "ru")
+        api.WoWS("demo", "ru", "ru")
+        api.WoWP("demo", "ru", "ru")
+        api.WGN("demo", "ru", "ru")
 
     def test_api_wrong_realm(self):
         with self.assertRaises(wglib.exceptions.ValidationError):
-            wglib.WoT("demo", "martian")
+            api.WoT("demo", "martian")
 
         with self.assertRaises(wglib.exceptions.ValidationError):
-            wglib.WoT("demo", "mac")
+            api.WoT("demo", "mac")
 
 
 class AsyncTestCase(unittest.TestCase):
     def test_api(self):
-        wglib.AsyncIOWoT("demo", "ru")
-        wglib.AsyncIOWoTB("demo", "ru")
-        wglib.AsyncIOWoTX("demo", "xbox")
-        wglib.AsyncIOWoWS("demo", "ru")
-        wglib.AsyncIOWoWP("demo", "ru")
-        wglib.AsyncIOWGN("demo", "ru")
+        api.aio.WoT("demo", "ru")
+        api.aio.WoTB("demo", "ru")
+        api.aio.WoTX("demo", "xbox")
+        api.aio.WoWS("demo", "ru")
+        api.aio.WoWP("demo", "ru")
+        api.aio.WGN("demo", "ru")
 
     def test_api_language(self):
-        wglib.AsyncIOWoT("demo", "ru", "ru")
-        wglib.AsyncIOWoTB("demo", "ru", "ru")
-        wglib.AsyncIOWoTX("demo", "xbox", "ru")
-        wglib.AsyncIOWoWS("demo", "ru", "ru")
-        wglib.AsyncIOWoWP("demo", "ru", "ru")
-        wglib.AsyncIOWGN("demo", "ru", "ru")
+        api.aio.WoT("demo", "ru", "ru")
+        api.aio.WoTB("demo", "ru", "ru")
+        api.aio.WoTX("demo", "xbox", "ru")
+        api.aio.WoWS("demo", "ru", "ru")
+        api.aio.WoWP("demo", "ru", "ru")
+        api.aio.WGN("demo", "ru", "ru")
 
     def test_api_wrong_realm(self):
         with self.assertRaises(wglib.exceptions.ValidationError):
-            wglib.AsyncIOWoT("demo", "martian")
+            api.aio.WoT("demo", "martian")
 
         with self.assertRaises(wglib.exceptions.ValidationError):
-            wglib.AsyncIOWoT("demo", "mac")
+            api.aio.WoT("demo", "mac")
 
 
 if __name__ == '__main__':

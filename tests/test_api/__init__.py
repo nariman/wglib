@@ -1,6 +1,6 @@
 """
 Wargaming API Python 3 Library
-wglib.api.
+tests.test_api.
 
 The MIT License (MIT)
 Copyright (c) 2016 Nariman Safiulin
@@ -20,6 +20,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-
-from wglib.api.names import WoT, WoTB, WoTX, WoWS, WoWP, WGN
-from wglib.aio import api as aio
