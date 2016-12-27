@@ -1,4 +1,4 @@
-asynctest
+asynctest==0.9.0
 pytest-asyncio
 coveralls
 tox
