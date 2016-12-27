@@ -1,7 +1,7 @@
 # Wargaming API Python 3 Library
 
 Wargaming API Library with [asyncio](https://docs.python.org/3/library/asyncio.html) support  
-Compatible only with a Python 3.5.
+Compatible with Python 3.5+
 
 [![Build Status](https://travis-ci.org/woofilee/wglib.svg?branch=master)](https://travis-ci.org/woofilee/wglib)
 [![Coverage Status](https://coveralls.io/repos/github/woofilee/wglib/badge.svg?branch=master)](https://coveralls.io/github/woofilee/wglib?branch=master)
@@ -20,14 +20,14 @@ Only manual
 #### Creating an API
 
 ```python
->>> import wglib
+>>> from wglib import api
  
->>> wot  = wglib.WoT("application_id", "region")  # World of Tanks API
->>> wotb = wglib.WoTB("application_id", "region")  # World of Tanks Blitz API
->>> wotx = wglib.WoTX("application_id", "platform")  # World of Tanks Console API
->>> wows = wglib.WoWS("application_id", "region")  # World of Warships API
->>> wowp = wglib.WoWS("application_id", "region")  # World of Warplanes API
->>> wgn  = wglib.WGN("application_id", "region")  # Wargaming Network API
+>>> wot  = api.WoT("application_id", "region")  # World of Tanks API
+>>> wotb = api.WoTB("application_id", "region")  # World of Tanks Blitz API
+>>> wotx = api.WoTX("application_id", "platform")  # World of Tanks Console API
+>>> wows = api.WoWS("application_id", "region")  # World of Warships API
+>>> wowp = api.WoWS("application_id", "region")  # World of Warplanes API
+>>> wgn  = api.WGN("application_id", "region")  # Wargaming Network API
 ```
 
 Available regions can be found in the [Wargaming PAPI documentation](https://developers.wargaming.net/documentation/guide/getting-started/).  
@@ -36,7 +36,15 @@ Available platforms at the moment are `xbox` and `ps4`.
 You can also specify a default language for API:
 
 ```python
->>> wot = wglib.WoT("demo", "ru", language="en")  # World of Tanks API
+>>> wot = api.WoT("demo", "ru", language="en")  # World of Tanks API
+```
+
+And use async API:
+
+```python
+>>> from wglib.aio import api
+
+>>> aiowgn = api.WGN("application_id", "region")  # Wargaming Network API
 ```
 
 #### Creating a request
@@ -50,6 +58,9 @@ https://developers.wargaming.net/reference/all/wgn/servers/info/
 """
  
 >>> res = wgn.servers.info(game="wot")
+<wglib.api.base.Response object>
+
+>>> res = await aiowgn.servers.info(game="wot")  # async/await syntax
 <wglib.api.base.Response object>
 ```
 

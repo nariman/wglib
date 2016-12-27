@@ -21,34 +21,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+from wglib.api import names
 from wglib.aio.api import base
 
 
-class WoT(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__("wot", application_id, region, language)
+class WoT(base.API, names.WoT):
+    pass
 
 
-class WoTB(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__("wotb", application_id, region, language)
+class WoTB(base.API, names.WoTB):
+    pass
 
 
-class WoTX(base.API):
-    def __init__(self, application_id, platform, language=None):
-        super().__init__("wotx", application_id, platform, language)
+class WoTX(base.API, names.WoTX):
+    pass
 
 
-class WoWS(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__("wows", application_id, region, language)
+class WoWS(base.API, names.WoWS):
+    pass
 
 
-class WoWP(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__("wowp", application_id, region, language)
+class WoWP(base.API, names.WoWP):
+    pass
 
 
-class WGN(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__("wgn", application_id, region, language)
+class WGN(base.API, names.WGN):
+    pass

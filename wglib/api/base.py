@@ -23,8 +23,17 @@ SOFTWARE.
 
 import json
 import logging
+
 import requests
+
 from wglib import __version__, exceptions, settings
+
+
+__all__ = [
+    'API',
+    'Response',
+    'Request',
+]
 
 _logger = logging.getLogger(__name__)
 
@@ -40,8 +49,9 @@ class Request:
         :param data: Method parameters
         """
         self._api = api
-        self._method = method + "/"
+        self._method = method + '/'
         self._data = data if data else dict()
+        self._headers = {}
 
     def __getitem__(self, key):
         return self._data.get(key)
@@ -73,6 +83,10 @@ class Request:
     @property
     def data(self):
         return self._data
+
+    @property
+    def headers(self):
+        return self._headers
 
 
 class Response:
@@ -106,21 +120,25 @@ class Response:
 class API:
     def __init__(self, api_name, application_id, realm, language=None):
         if realm not in settings.API_ENDPOINTS[api_name]:
-            raise exceptions.ValidationError("Unknown realm")
+            raise exceptions.ValidationError('Unknown realm')
 
-        # self._api_name = api_name
+        self._api_name = api_name
         self._cluster = settings.API_ENDPOINTS[api_name][realm]
         self._global_parameters = dict()
-        # self._realm = realm
+        self._realm = realm
 
-        self["application_id"] = application_id
+        self['application_id'] = application_id
 
         # New languages can be added. Checks are not required.
         if language:
-            self["language"] = language
+            self['language'] = language
 
-        _logger.info("WG API created ({0}, {1}). Library version: {0}."
+        _logger.info('WG API created ({}, {}). Library version: {}.'
                      .format(api_name, realm, __version__))
+
+        self._headers = {
+            'User-Agent': settings.HTTP_USER_AGENT_HEADER
+        }
 
     def __getattr__(self, method):
         return Request(self, method)
@@ -141,6 +159,10 @@ class API:
     def global_parameters(self):
         return self._global_parameters
 
+    @property
+    def headers(self):
+        return self._headers
+
     def request(self, request):
         """
         :type request: :class:`wglib.api.base.Request`
@@ -152,10 +174,14 @@ class API:
         data = self._global_parameters.copy()
         data.update(request.data)
 
-        return Response(request,
-                        requests.post(self._cluster + request.method,
-                                      data=data,
-                                      headers={
-                                          "User-Agent":
-                                              settings.HTTP_USER_AGENT_HEADER}
-                                      ).text)
+        headers = self._headers.copy()
+        headers.update(request.headers)
+
+        return Response(
+            request,
+            requests.post(
+                self._cluster + request.method,
+                data=data,
+                headers=headers
+            ).text
+        )

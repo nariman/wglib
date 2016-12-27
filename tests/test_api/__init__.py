@@ -1,6 +1,6 @@
 """
 Wargaming API Python 3 Library
-wglib.api.names.
+tests.test_api.
 
 The MIT License (MIT)
 Copyright (c) 2016 Nariman Safiulin
@@ -20,35 +20,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
-
-from wglib.api import base
-
-
-class WoT(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__('wot', application_id, region, language)
-
-
-class WoTB(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__('wotb', application_id, region, language)
-
-
-class WoTX(base.API):
-    def __init__(self, application_id, platform, language=None):
-        super().__init__('wotx', application_id, platform, language)
-
-
-class WoWS(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__('wows', application_id, region, language)
-
-
-class WoWP(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__('wowp', application_id, region, language)
-
-
-class WGN(base.API):
-    def __init__(self, application_id, region, language=None):
-        super().__init__('wgn', application_id, region, language)

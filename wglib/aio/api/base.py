@@ -22,8 +22,16 @@ SOFTWARE.
 """
 
 import aiohttp
-from wglib import settings
+
 from wglib.api import base
+from wglib.api.base import Response
+
+
+__all__ = [
+    'API',
+    'Response',
+    'Request',
+]
 
 
 class Request(base.Request):
@@ -50,11 +58,11 @@ class API(base.API):
         data = self._global_parameters.copy()
         data.update(request.data)
 
+        headers = self._headers.copy()
+        headers.update(request.headers)
+
         async with aiohttp.ClientSession() as session:
             async with session.post(self._cluster + request.method,
                                     params=data,
-                                    headers={
-                                        "User-Agent":
-                                            settings.HTTP_USER_AGENT_HEADER}
-                                    ) as resp:
+                                    headers=headers) as resp:
                 return base.Response(request, await resp.text())
