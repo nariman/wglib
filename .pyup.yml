@@ -1,5 +1,7 @@
 search: False
 
+branch: develop
+
 requirements:
   - requirements.txt
   - requirements-test.txt
