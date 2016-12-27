@@ -1,10 +1,12 @@
 # Wargaming API Python 3 Library
 
-Wargaming API Library with [asyncio](https://docs.python.org/3/library/asyncio.html) support  
+Wargaming API Library with [asyncio](https://docs.python.org/3/library/asyncio.html) support
 Compatible with Python 3.5+
 
 [![Build Status](https://travis-ci.org/woofilee/wglib.svg?branch=master)](https://travis-ci.org/woofilee/wglib)
 [![Coverage Status](https://coveralls.io/repos/github/woofilee/wglib/badge.svg?branch=master)](https://coveralls.io/github/woofilee/wglib?branch=master)
+[![Updates](https://pyup.io/repos/github/woofilee/wglib/shield.svg)](https://pyup.io/repos/github/woofilee/wglib/)
+[![Python 3](https://pyup.io/repos/github/woofilee/wglib/python-3-shield.svg)](https://pyup.io/repos/github/woofilee/wglib/)
 
 ## It's important
 
@@ -12,7 +14,7 @@ Library is created for personal use and may contain bugs and strange code :)
 
 ## Installation
 
-¯\_(ツ)_/¯
+¯\\\_(ツ)_/¯
 Only manual
 
 ## Getting started
@@ -21,7 +23,7 @@ Only manual
 
 ```python
 >>> from wglib import api
- 
+
 >>> wot  = api.WoT("application_id", "region")  # World of Tanks API
 >>> wotb = api.WoTB("application_id", "region")  # World of Tanks Blitz API
 >>> wotx = api.WoTX("application_id", "platform")  # World of Tanks Console API
@@ -30,7 +32,7 @@ Only manual
 >>> wgn  = api.WGN("application_id", "region")  # Wargaming Network API
 ```
 
-Available regions can be found in the [Wargaming PAPI documentation](https://developers.wargaming.net/documentation/guide/getting-started/).  
+Available regions can be found in the [Wargaming PAPI documentation](https://developers.wargaming.net/documentation/).
 Available platforms at the moment are `xbox` and `ps4`.
 
 You can also specify a default language for API:
@@ -56,7 +58,7 @@ Available request methods can be found in the [Wargaming PAPI reference](https:/
 Game servers info
 https://developers.wargaming.net/reference/all/wgn/servers/info/
 """
- 
+
 >>> res = wgn.servers.info(game="wot")
 <wglib.api.base.Response object>
 
@@ -69,7 +71,7 @@ Response object contains raw (json) data in the `res.raw` and parsed data in the
 ```python
 >>> res.data
 {'status': 'ok', 'data': {'wot': [{'server': 'RU1', 'players_online': 47845} ...
- 
+
 >>> res.data["status"]
 'ok'
 >>> res["status"]  # dict-like
