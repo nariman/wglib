@@ -26,29 +26,29 @@ from wglib.api import base
 
 class WoT(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wot", application_id, region, language)
+        super().__init__('wot', application_id, region, language)
 
 
 class WoTB(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wotb", application_id, region, language)
+        super().__init__('wotb', application_id, region, language)
 
 
 class WoTX(base.API):
     def __init__(self, application_id, platform, language=None):
-        super().__init__("wotx", application_id, platform, language)
+        super().__init__('wotx', application_id, platform, language)
 
 
 class WoWS(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wows", application_id, region, language)
+        super().__init__('wows', application_id, region, language)
 
 
 class WoWP(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wowp", application_id, region, language)
+        super().__init__('wowp', application_id, region, language)
 
 
 class WGN(base.API):
     def __init__(self, application_id, region, language=None):
-        super().__init__("wgn", application_id, region, language)
+        super().__init__('wgn', application_id, region, language)

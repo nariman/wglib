@@ -24,13 +24,13 @@ SOFTWARE.
 
 class WGLibError(Exception):
     """
-    API library error
+    Library error
     """
     pass
 
 
 class ValidationError(WGLibError):
     """
-    API validation error
+    Validation error
     """
     pass

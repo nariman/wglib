@@ -1,3 +1,4 @@
 asynctest
 pytest-asyncio
 coveralls
+tox

@@ -22,4 +22,3 @@ SOFTWARE.
 """
 
 from wglib.api.names import WoT, WoTB, WoTX, WoWS, WoWP, WGN
-from wglib.aio import api as aio

@@ -21,51 +21,60 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+import sys
+
 from wglib import __version__
 
 
-API_LANGUAGES = ("en", "ru", "pl", "de", "fr", "es", "zh-cn", "tr", "cs", "th",
-                 "vi", "ko")
+API_LANGUAGES = ('en', 'ru', 'pl', 'de', 'fr', 'es', 'zh-cn', 'zh-tw', 'tr',
+                 'cs', 'th', 'vi', 'ko')
 
-API_SCOPES = ("wot", "wotb", "wotx", "wows", "wowp", "wgn", "wgpay")
+API_SCOPES = ('wot', 'wotb', 'wotx', 'wows', 'wowp', 'wgn', 'wgpay')
+
 API_ENDPOINTS = {
-    "wot": {
-        "asia": "https://api.worldoftanks.asia/wot/",
-        "eu":   "https://api.worldoftanks.eu/wot/",
-        "kr":   "https://api.worldoftanks.kr/wot/",
-        "na":   "https://api.worldoftanks.com/wot/",
-        "ru":   "https://api.worldoftanks.ru/wot/",
+    'wot': {
+        'asia': 'https://api.worldoftanks.asia/wot/',
+        'eu':   'https://api.worldoftanks.eu/wot/',
+        'kr':   'https://api.worldoftanks.kr/wot/',
+        'na':   'https://api.worldoftanks.com/wot/',
+        'ru':   'https://api.worldoftanks.ru/wot/',
     },
-    "wotb": {
-        "asia": "https://api.wotblitz.asia/wotb/",
-        "eu":   "https://api.wotblitz.eu/wotb/",
-        "na":   "https://api.wotblitz.com/wotb/",
-        "ru":   "https://api.wotblitz.ru/wotb/",
+    'wotb': {
+        'asia': 'https://api.wotblitz.asia/wotb/',
+        'eu':   'https://api.wotblitz.eu/wotb/',
+        'na':   'https://api.wotblitz.com/wotb/',
+        'ru':   'https://api.wotblitz.ru/wotb/',
     },
-    "wotx": {
-        "ps4":  "https://api-ps4-console.worldoftanks.com/wotx/",
-        "xbox": "https://api-xbox-console.worldoftanks.com/wotx/",
+    'wotx': {
+        'ps4':  'https://api-ps4-console.worldoftanks.com/wotx/',
+        'xbox': 'https://api-xbox-console.worldoftanks.com/wotx/',
     },
-    "wows": {
-        "asia": "https://api.worldofwarships.asia/wows/",
-        "eu":   "https://api.worldofwarships.eu/wows/",
-        "kr":   "https://api.worldofwarships.kr/wows/",
-        "na":   "https://api.worldofwarships.com/wows/",
-        "ru":   "https://api.worldofwarships.ru/wows/",
+    'wows': {
+        'asia': 'https://api.worldofwarships.asia/wows/',
+        'eu':   'https://api.worldofwarships.eu/wows/',
+        'na':   'https://api.worldofwarships.com/wows/',
+        'ru':   'https://api.worldofwarships.ru/wows/',
     },
-    "wowp": {
-        "eu":   "https://api.worldofwarplanes.eu/wowp/",
-        "na":   "https://api.worldofwarplanes.com/wowp/",
-        "ru":   "https://api.worldofwarplanes.ru/wowp/",
+    'wowp': {
+        'eu':   'https://api.worldofwarplanes.eu/wowp/',
+        'na':   'https://api.worldofwarplanes.com/wowp/',
+        'ru':   'https://api.worldofwarplanes.ru/wowp/',
     },
-    "wgn": {
-        "asia": "https://api.worldoftanks.asia/wgn/",
-        "eu":   "https://api.worldoftanks.eu/wgn/",
-        "kr":   "https://api.worldoftanks.kr/wgn/",
-        "na":   "https://api.worldoftanks.com/wgn/",
-        "ru":   "https://api.worldoftanks.ru/wgn/",
+    'wgn': {
+        'asia': 'https://api.worldoftanks.asia/wgn/',
+        'eu':   'https://api.worldoftanks.eu/wgn/',
+        'kr':   'https://api.worldoftanks.kr/wgn/',
+        'na':   'https://api.worldoftanks.com/wgn/',
+        'ru':   'https://api.worldoftanks.ru/wgn/',
     },
 }
 
-HTTP_USER_AGENT_HEADER = 'wglib/{0} (https://github.com/woofilee/wglib)'.format(
-    __version__)
+HTTP_USER_AGENT_HEADER = \
+    'python/{} wglib/{} (https://github.com/woofilee/wglib)'.format(
+        '{}.{}.{}'.format(
+            sys.version_info.major,
+            sys.version_info.minor,
+            sys.version_info.micro
+        ),
+        __version__
+    )
