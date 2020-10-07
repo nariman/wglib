@@ -10,7 +10,7 @@ Compatible with Python 3.5+
 
 ## It's important
 
-Library is created for personal use and may contain bugs and strange code :)
+Library was created for my personal purposes, so it may contain some bugs and strange code :)
 
 ## Installation
 
